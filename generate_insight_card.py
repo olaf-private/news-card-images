@@ -21,7 +21,7 @@ GOLD     = "#c47f00"
 GRAY     = "#888888"
 YELLOW   = "#f5c842"
 
-W, H = 900, 960
+W, H = 900, 1080
 
 img  = Image.new("RGB", (W, H), BG)
 draw = ImageDraw.Draw(img, "RGBA")
@@ -135,8 +135,26 @@ summary = "방산·조선 강세, 반도체·2차전지 약세 한 주.\n다음 
 for i, line in enumerate(summary.split("\n")):
     text(line, 58, 848 + i * 32, f_mid, color="#333")
 
+# ── 해시태그 ─────────────────────────────────────────────
+HASH_BG   = "#f5f5f5"
+HASH_TEXT = "#777777"
+f_hash    = font(FONT_REGULAR, 15)
+
+rect([36, 924, W-36, 1050], fill=HASH_BG, outline="#dddddd", width=1)
+
+hashtags = [
+    # 고정
+    ["#allround_news", "#주식", "#투자", "#재테크", "#주식투자"],
+    # 카드 타입
+    ["#주간리뷰", "#섹터분석", "#투자인사이트", "#이번주시장"],
+    # 이번 주 키워드
+    ["#방산주", "#방산ETF", "#한화에어로스페이스", "#LIG넥스원", "#방산랠리"],
+]
+for i, tags in enumerate(hashtags):
+    text("  ".join(tags), 52, 940 + i * 34, f_hash, color=HASH_TEXT)
+
 # ── 핸들 ─────────────────────────────────────────────────
-text("@allround_news", W-44, H-18, f_small, color=GRAY, anchor="rb")
+text("@allround_news", W-44, H-14, f_small, color=GRAY, anchor="rb")
 
 img.save("/home/user/news-card-images/insight_card_mockup.png")
 print("저장 완료: insight_card_mockup.png")
