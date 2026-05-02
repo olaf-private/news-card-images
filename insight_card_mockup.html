@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Gaegu:wght@400;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f0ede6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .card {
+    background: #fdf9f2;
+    width: 540px;
+    border-radius: 16px;
+    padding: 28px 28px 20px;
+    font-family: 'Gaegu', cursive;
+    border: 2px solid #333;
+    position: relative;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 4px;
+    color: #111;
+  }
+
+  .date {
+    text-align: center;
+    font-size: 17px;
+    color: #555;
+    margin-bottom: 18px;
+  }
+
+  .divider {
+    border: none;
+    border-top: 2px dashed #bbb;
+    margin: 14px 0;
+  }
+
+  /* 상단 2단 */
+  .top-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .box {
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 12px 14px;
+    background: #fff;
+  }
+
+  .box-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* 핫 섹터 */
+  .sector-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .sector-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+  }
+
+  .sector-name { color: #222; }
+
+  .up   { color: #e03030; font-weight: 700; }
+  .down { color: #1a5cd1; font-weight: 700; }
+
+  .rank {
+    font-size: 12px;
+    color: #888;
+    width: 18px;
+    text-align: right;
+    margin-right: 4px;
+  }
+
+  .sector-left { display: flex; align-items: center; }
+
+  /* 인사이트 키워드 */
+  .keyword-box {
+    background: #fff9e6;
+    border: 2px solid #f5c842;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+  }
+
+  .keyword-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .keyword-main {
+    font-size: 22px;
+    font-weight: 700;
+    color: #c47f00;
+    margin-bottom: 6px;
+  }
+
+  .keyword-desc {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.5;
+  }
+
+  /* 다음 주 일정 */
+  .schedule-box {
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 12px 14px;
+    background: #fff;
+    margin-bottom: 12px;
+  }
+
+  .schedule-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 6px;
+  }
+
+  .schedule-row {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  .schedule-date {
+    color: #888;
+    min-width: 36px;
+  }
+
+  .schedule-content { color: #222; }
+
+  /* 요약 */
+  .summary {
+    background: #fff3cd;
+    border: 2px solid #e0c060;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  .summary strong { font-size: 14px; }
+
+  .handle {
+    text-align: right;
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 10px;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 7px;
+    border-radius: 20px;
+    margin-left: 4px;
+    font-weight: 700;
+  }
+
+  .badge-kr { background: #e8f4ff; color: #1a5cd1; border: 1px solid #1a5cd1; }
+  .badge-insight { background: #fff0e0; color: #c47f00; border: 1px solid #f5c842; }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <div class="title">이번 주 한국장 리뷰<span class="badge badge-kr">KR</span></div>
+  <div class="date">03/May/26 · 16:00 <span class="badge badge-insight">인사이트</span></div>
+
+  <hr class="divider">
+
+  <!-- 상단: 핫 섹터 + 콜드 섹터 -->
+  <div class="top-row">
+    <div class="box">
+      <div class="box-title">🔥 주간 핫 섹터</div>
+      <div class="sector-list">
+        <div class="sector-row">
+          <div class="sector-left"><span class="rank">1</span><span class="sector-name">방산</span></div>
+          <span class="up">+8.4% ↑</span>
+        </div>
+        <div class="sector-row">
+          <div class="sector-left"><span class="rank">2</span><span class="sector-name">조선</span></div>
+          <span class="up">+5.1% ↑</span>
+        </div>
+        <div class="sector-row">
+          <div class="sector-left"><span class="rank">3</span><span class="sector-name">바이오</span></div>
+          <span class="up">+3.7% ↑</span>
+        </div>
+        <div class="sector-row">
+          <div class="sector-left"><span class="rank">4</span><span class="sector-name">금융</span></div>
+          <span class="up">+2.9% ↑</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="box-title">❄️ 주간 콜드 섹터</div>
+      <div class="sector-list">
+        <div class="sector-row">
+          <div class="sector-left"><span class="rank">1</span><span class="sector-name">반도체</span></div>
+          <span class="down">-4.2% ↓</span>
+        </div>
+        <div class="sector-row">
+          <div class="sector-left"><span class="rank">2</span><span class="sector-name">2차전지</span></div>
+          <span class="down">-3.8% ↓</span>
+        </div>
+        <div class="sector-row">
+          <div class="sector-left"><span class="rank">3</span><span class="sector-name">자동차</span></div>
+          <span class="down">-2.1% ↓</span>
+        </div>
+        <div class="sector-row">
+          <div class="sector-left"><span class="rank">4</span><span class="sector-name">화학</span></div>
+          <span class="down">-1.6% ↓</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 인사이트 키워드 -->
+  <div class="keyword-box">
+    <div class="keyword-title">💡 이번 주 키워드</div>
+    <div class="keyword-main">방산 랠리의 이유</div>
+    <div class="keyword-desc">
+      NATO 국방비 증액 합의 + 국내 방산 수출 계약 연이어 체결.<br>
+      한화에어로·LIG넥스원 주간 +10% 돌파. 단기 과열 주의.
+    </div>
+  </div>
+
+  <!-- 다음 주 주요 일정 -->
+  <div class="schedule-box">
+    <div class="box-title">📅 다음 주 주요 일정</div>
+    <div class="schedule-list">
+      <div class="schedule-row">
+        <span class="schedule-date">05/06</span>
+        <span class="schedule-content">한국 CPI 발표</span>
+      </div>
+      <div class="schedule-row">
+        <span class="schedule-date">05/07</span>
+        <span class="schedule-content">삼성전자 주주총회</span>
+      </div>
+      <div class="schedule-row">
+        <span class="schedule-date">05/09</span>
+        <span class="schedule-content">한국은행 금통위 기준금리 결정</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 요약 -->
+  <div class="summary">
+    <strong>한 줄 요약</strong><br>
+    방산·조선 강세 속 반도체·2차전지 약세. 다음 주 금통위 금리 결정이 분수령.
+  </div>
+
+  <div class="handle">@allround_news</div>
+</div>
+</body>
+</html>
